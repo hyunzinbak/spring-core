@@ -1,4 +1,4 @@
-package hyunzinbak.core;
+package hyunzinbak.core.discount;
 
 
 import static org.assertj.core.api.Assertions.assertThat;

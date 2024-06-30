@@ -1,5 +1,6 @@
-package hyunzinbak.core;
+package hyunzinbak.core.member;
 
+import hyunzinbak.core.AppConfig;
 import hyunzinbak.core.member.Grade;
 import hyunzinbak.core.member.Member;
 import hyunzinbak.core.member.MemberService;
