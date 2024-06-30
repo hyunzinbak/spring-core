@@ -3,7 +3,6 @@ package hyunzinbak.core.discount;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import hyunzinbak.core.discount.RateDiscountPolicy;
 import hyunzinbak.core.member.Grade;
 import hyunzinbak.core.member.Member;
 import org.junit.jupiter.api.DisplayName;

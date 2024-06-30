@@ -1,14 +1,11 @@
 package hyunzinbak.core.member;
 
 import hyunzinbak.core.AppConfig;
-import hyunzinbak.core.member.Grade;
-import hyunzinbak.core.member.Member;
-import hyunzinbak.core.member.MemberService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class MemberServiceTest {
+class MemberServiceTest {
 
     MemberService memberService;
 
