@@ -13,22 +13,42 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class AppConfig {
+    /**
+     * @Bean memberService --> new MemoryMemberRepository()
+     * @Bean orderService --> new MemoryMemberRepository()
+     * --> 결과적으로 각각 다른 2개의 MemoryMemberRepository 가 생성되면서 싱글톤이 깨지는 것 처럼 보인다.
+     */
+
+    /*
+    expect
+        call AppConfig.memberService
+        call AppConfig.memberRepository
+        call AppConfig.memberRepository
+        call AppConfig.orderService
+        call AppConfig.memberRepository
+
+    result
+        call AppConfig.memberService
+        call AppConfig.memberRepository
+        call AppConfig.orderService
+    **/
 
     @Bean
     public MemberService memberService() {
+        System.out.println("call AppConfig.memberService");
         return new MemberServiceImpl(memberRepository());
     }
 
     @Bean
-    public OrderService orderService() {
-        return new OrderServiceImpl(
-                memberRepository(),
-                discountPolicy());
+    public MemberRepository memberRepository() {
+        System.out.println("call AppConfig.memberRepository");
+        return new MemoryMemberRepository();
     }
 
     @Bean
-    public MemberRepository memberRepository() {
-        return new MemoryMemberRepository();
+    public OrderService orderService() {
+        System.out.println("call AppConfig.orderService");
+        return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
 
     @Bean
